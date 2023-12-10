@@ -11,7 +11,7 @@ namespace DBapplication
     public class DBManager
     {
         //DIFFERENT DB_CONNECTION_STRING FOR EVERYONE
-        static string DB_Connection_String = @"Data Source=YOUSEF_HP\SQLEXPRESS;Initial Catalog=project_standard;Integrated Security=True";
+        static string DB_Connection_String = ConnectString.Val;
         SqlConnection myConnection;
         static bool check=false;
         public DBManager()

@@ -12,6 +12,7 @@ namespace DBapplication
 {
     public partial class Welcome : Form
     {
+        Controller controllerobj;
         public Welcome()
         {
             InitializeComponent();
@@ -19,7 +20,7 @@ namespace DBapplication
 
         private void Welcome_Load(object sender, EventArgs e)
         {
-
+            controllerobj = new Controller();
         }
     }
 }
