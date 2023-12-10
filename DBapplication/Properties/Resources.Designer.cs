@@ -59,5 +59,75 @@ namespace DBapplication.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap f1577795082a0de39154405214911902 {
+            get {
+                object obj = ResourceManager.GetObject("f1577795082a0de39154405214911902", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap f1577795082a0de391544052149119021 {
+            get {
+                object obj = ResourceManager.GetObject("f1577795082a0de391544052149119021", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap f1577795082a0de391544052149119022 {
+            get {
+                object obj = ResourceManager.GetObject("f1577795082a0de391544052149119022", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap f1577795082a0de391544052149119023 {
+            get {
+                object obj = ResourceManager.GetObject("f1577795082a0de391544052149119023", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logo_Car_service_center_on_transparent_background_PNG {
+            get {
+                object obj = ResourceManager.GetObject("Logo-Car-service-center-on-transparent-background-PNG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngtree_black_and_white_cartoon_car_service_icon_png_image_4239520 {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-black-and-white-cartoon-car-service-icon-png-image_4239520", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap preview_page1 {
+            get {
+                object obj = ResourceManager.GetObject("preview-page1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

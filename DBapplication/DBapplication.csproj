@@ -124,6 +124,27 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo-Car-service-center-on-transparent-background-PNG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-black-and-white-cartoon-car-service-icon-png-image_4239520.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preview-page1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f1577795082a0de39154405214911902.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f1577795082a0de391544052149119021.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f1577795082a0de391544052149119022.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f1577795082a0de391544052149119023.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
