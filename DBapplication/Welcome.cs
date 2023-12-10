@@ -22,5 +22,16 @@ namespace DBapplication
         {
             controllerobj = new Controller();
         }
+
+        private void kryptonButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonButton1_Click(object sender, EventArgs e)
+        {
+            AdminLogin adminLogin = new AdminLogin();
+            adminLogin.Show();
+        }
     }
 }
