@@ -79,5 +79,11 @@ namespace DBapplication
             string query = "select id from admin where username = '" + un + "' and password = '" + pass + "'";
             return (int)dbMan.ExecuteScalar(query);
         }
+
+        public int GetUserID(string user, string un, string pass)
+        {
+            string query = "select id from " + user + " where username = '" + un + "' and password = '" + pass + "' and active = 1";
+            return (int)dbMan.ExecuteScalar(query);
+        }
     }
 }

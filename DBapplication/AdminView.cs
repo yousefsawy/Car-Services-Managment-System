@@ -24,5 +24,11 @@ namespace DBapplication
         {
 
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ChangePassword changePassword = new ChangePassword(admin_id, "admin");
+            changePassword.Show();
+        }
     }
 }
