@@ -44,5 +44,11 @@ namespace DBapplication
         {
             
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Register register = new Register();
+            register.Show();
+        }
     }
 }

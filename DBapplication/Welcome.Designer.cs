@@ -108,7 +108,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(178, 40);
             this.button3.TabIndex = 5;
-            this.button3.Text = "HoD";
+            this.button3.Text = "HOD";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -212,6 +212,7 @@
             this.button5.TabIndex = 3;
             this.button5.Text = "Register";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Welcome
             // 
