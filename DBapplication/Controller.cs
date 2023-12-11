@@ -73,6 +73,11 @@ namespace DBapplication
         {
             dbMan.CloseConnection();
         }
-       
+
+        public int GetAdminID(string un, string pass)
+        {
+            string query = "select id from admin where username = '" + un + "' and password = '" + pass + "'";
+            return (int)dbMan.ExecuteScalar(query);
+        }
     }
 }
