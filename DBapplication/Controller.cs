@@ -117,5 +117,15 @@ namespace DBapplication
             string query = "update departments set active = 0 where id = " + dep_id + "";
             return dbMan.ExecuteNonQuery(query);
         }
+
+        public int UpdateDepartment(int dep_id, int br_id)
+        {
+            if (br_id == 0)
+            {
+                return 0;
+            }
+            string query = "update departments set branch_id = " + br_id + " where id = " + dep_id + "";
+            return dbMan.ExecuteNonQuery(query);
+        }
     }
 }

@@ -80,5 +80,19 @@ namespace DBapplication
             comboBox1.ResetText();
             comboBox2.ResetText();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            controllerObj = new Controller();
+            int id = Convert.ToInt32(comboBox2.SelectedValue);
+            int br_id = Convert.ToInt32(comboBox1.SelectedValue);
+            if (comboBox2.Text == "") { MessageBox.Show("Error! Please, select a department"); }
+            else if (comboBox1.Text == "") { MessageBox.Show("Error! Please, select a branch"); }
+            else
+            {
+                controllerObj.UpdateDepartment(id, br_id);
+                MessageBox.Show("Department updated successfully");
+            }
+        }
     }
 }
