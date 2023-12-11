@@ -35,7 +35,6 @@ namespace DBapplication
                 {
                     AdminView adminView = new AdminView(controllerObj.GetAdminID(un, pass));
                     adminView.Show();
-                    MessageBox.Show(Convert.ToString(controllerObj.GetAdminID(un, pass)));
                 }
             }
         }
