@@ -63,6 +63,20 @@ namespace DBapplication
             }
         }
 
+        public int InsertDepartment(string name, string descrip, int br_id)
+        {
+            if (descrip == "null")
+            {
+                string query = "insert into departments values('" + name + "', null, " + br_id + ", 1)";
+                return dbMan.ExecuteNonQuery(query);
+            }
+            else
+            {
+                string query = "insert into departments values('" + name + "', '" + descrip + "', " + br_id + ", 1)";
+                return dbMan.ExecuteNonQuery(query);
+            }
+        }
+
         public int ChangePassword(string user, int id, string pass)
         {
             string query = "update " + user + " set password = '" + pass + "' where id = " + id + "";
@@ -84,6 +98,18 @@ namespace DBapplication
         {
             string query = "select id from " + user + " where username = '" + un + "' and password = '" + pass + "' and active = 1";
             return (int)dbMan.ExecuteScalar(query);
+        }
+
+        public DataTable GetAllDeps()
+        {
+            string query = "select * from departments";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetAllBranches()
+        {
+            string query = "select * from branches";
+            return dbMan.ExecuteReader(query);
         }
     }
 }

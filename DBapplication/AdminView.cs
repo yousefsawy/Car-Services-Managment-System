@@ -30,5 +30,11 @@ namespace DBapplication
             ChangePassword changePassword = new ChangePassword(admin_id, "admin");
             changePassword.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DepartmentsAdmin departmentsAdmin = new DepartmentsAdmin();
+            departmentsAdmin.Show();
+        }
     }
 }
