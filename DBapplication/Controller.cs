@@ -102,14 +102,20 @@ namespace DBapplication
 
         public DataTable GetAllDeps()
         {
-            string query = "select * from departments";
+            string query = "select * from departments where active = 1";
             return dbMan.ExecuteReader(query);
         }
 
         public DataTable GetAllBranches()
         {
-            string query = "select * from branches";
+            string query = "select * from branches where active = 1";
             return dbMan.ExecuteReader(query);
+        }
+
+        public int DeleteDepartment(int dep_id)
+        {
+            string query = "update departments set active = 0 where id = " + dep_id + "";
+            return dbMan.ExecuteNonQuery(query);
         }
     }
 }

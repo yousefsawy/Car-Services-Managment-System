@@ -62,6 +62,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "read";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -80,6 +81,7 @@
             this.button4.TabIndex = 3;
             this.button4.Text = "delete";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // textBox1
             // 
@@ -177,6 +179,7 @@
             this.Controls.Add(this.button1);
             this.Name = "DepartmentsAdmin";
             this.Text = "DepartmentsAdmin";
+            this.Load += new System.EventHandler(this.DepartmentsAdmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
