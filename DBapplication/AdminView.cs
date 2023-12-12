@@ -53,5 +53,11 @@ namespace DBapplication
             AdminsAdmin adminsAdmin = new AdminsAdmin();
             adminsAdmin.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ManagersAdmin managersAdmin = new ManagersAdmin();
+            managersAdmin.Show();
+        }
     }
 }

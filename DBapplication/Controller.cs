@@ -95,6 +95,12 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(query);
         }
 
+        public int InsertManager(string un, string pass, string fname, string lname, string phone, int br_id)
+        {
+            string query = "insert into manager values('" + un + "', '" + pass + "', '" + fname + "', '" + lname + "', '" + phone + "', " + br_id + ", 1)";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
         public int ChangePassword(string user, int id, string pass)
         {
             string query = "update " + user + " set password = '" + pass + "' where id = " + id + "";
@@ -136,6 +142,18 @@ namespace DBapplication
             return dbMan.ExecuteReader(query);
         }
 
+        public DataTable GetAllManagers()
+        {
+            string query = "select * from manager where active = 1 and branch_id in (select id from branches where active = 1)";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetAllUnmanagedBranches()
+        {
+            string query = "select * from branches where active = 1 and id not in (select branch_id from manager where active = 1)";
+            return dbMan.ExecuteReader(query);
+        }
+
         public int DeleteDepartment(int dep_id)
         {
             string query = "update departments set active = 0 where id = " + dep_id + "";
@@ -154,6 +172,12 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(query);
         }
 
+        public int DeleteManager(int mn_id)
+        {
+            string query = "update manager set active = 0 where id = " + mn_id + "";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
         public int UpdateDepartment(int dep_id, int br_id)
         {
             string query = "update departments set branch_id = " + br_id + " where id = " + dep_id + "";
@@ -169,6 +193,12 @@ namespace DBapplication
         public int UpdateService(int id, int price)
         {
             string query = "update services set price = " + price + "where id = " + id + "";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int UpdateManager(int id, int br_id)
+        {
+            string query = "update manager set branch_id = " + br_id + " where id = " + id + "";
             return dbMan.ExecuteNonQuery(query);
         }
     }
