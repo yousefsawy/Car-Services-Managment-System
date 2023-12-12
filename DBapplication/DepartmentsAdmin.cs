@@ -47,6 +47,8 @@ namespace DBapplication
                 comboBox2.DisplayMember = "name";
                 comboBox1.ResetText();
                 comboBox2.ResetText();
+                textBox1.Text = "";
+                textBox2.Text = "";
             }
             else
             {
@@ -58,6 +60,8 @@ namespace DBapplication
                 comboBox2.DisplayMember = "name";
                 comboBox1.ResetText();
                 comboBox2.ResetText();
+                textBox1.Text = "";
+                textBox2.Text = "";
             }
         }
 
@@ -70,6 +74,8 @@ namespace DBapplication
             dataGridView1.Refresh();
             comboBox1.ResetText();
             comboBox2.ResetText();
+            textBox1.Text = "";
+            textBox2.Text = "";
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -90,6 +96,8 @@ namespace DBapplication
                     comboBox2.DisplayMember = "name";
                     comboBox1.ResetText();
                     comboBox2.ResetText();
+                    textBox1.Text = "";
+                    textBox2.Text = "";
                 }
             }
             
@@ -114,6 +122,8 @@ namespace DBapplication
                 MessageBox.Show("Department updated successfully");
                 comboBox1.ResetText();
                 comboBox2.ResetText();
+                textBox1.Text = "";
+                textBox2.Text = "";
             }
         }
     }

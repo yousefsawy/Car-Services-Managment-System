@@ -13,7 +13,6 @@ namespace DBapplication
     public partial class AdminView : Form
     {
         int admin_id;
-        Controller controllerObj;
         public AdminView(int id)
         {
             InitializeComponent();
@@ -41,6 +40,12 @@ namespace DBapplication
         {
             BranchesAdmin branchesAdmin = new BranchesAdmin();
             branchesAdmin.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ServicesAdmin servicesAdmin = new ServicesAdmin();
+            servicesAdmin.Show();
         }
     }
 }

@@ -31,6 +31,8 @@ namespace DBapplication
             dataGridView1.DataSource = dt;
             dataGridView1.Refresh();
             comboBox1.ResetText();
+            textBox1.Text = "";
+            textBox2.Text = "";
         }
 
         private void BranchesAdmin_Load(object sender, EventArgs e)
@@ -55,6 +57,8 @@ namespace DBapplication
                     comboBox1.ValueMember = "id";
                     comboBox1.DisplayMember = "area";
                     comboBox1.ResetText();
+                    textBox1.Text = "";
+                    textBox2.Text = "";
                 }
             }
         }
@@ -80,6 +84,8 @@ namespace DBapplication
                     comboBox1.ValueMember = "id";
                     comboBox1.DisplayMember = "area";
                     comboBox1.ResetText();
+                    textBox1.Text = "";
+                    textBox2.Text = "";
 
                 }
             }
@@ -102,6 +108,8 @@ namespace DBapplication
                 comboBox1.ValueMember = "id";
                 comboBox1.DisplayMember = "area";
                 comboBox1.ResetText();
+                textBox1.Text = "";
+                textBox2.Text = "";
             }
         }
     }

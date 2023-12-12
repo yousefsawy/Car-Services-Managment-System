@@ -83,6 +83,12 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(query);
         }
 
+        public int InsertService(string type, string name, int price)
+        {
+            string query = "insert into services values('" + type + "', '" + name + "', " + price + ", 1)";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
         public int ChangePassword(string user, int id, string pass)
         {
             string query = "update " + user + " set password = '" + pass + "' where id = " + id + "";
@@ -118,6 +124,12 @@ namespace DBapplication
             return dbMan.ExecuteReader(query);
         }
 
+        public DataTable GetAllServices()
+        {
+            string query = "select * from services where active = 1";
+            return dbMan.ExecuteReader(query);
+        }
+
         public int DeleteDepartment(int dep_id)
         {
             string query = "update departments set active = 0 where id = " + dep_id + "";
@@ -130,6 +142,12 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(query);
         }
 
+        public int DeleteService(int sr_id)
+        {
+            string query = "update services set active = 0 where id = " + sr_id + "";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
         public int UpdateDepartment(int dep_id, int br_id)
         {
             string query = "update departments set branch_id = " + br_id + " where id = " + dep_id + "";
@@ -139,6 +157,12 @@ namespace DBapplication
         public int UpdateBranch(int br_id, string city, string area)
         {
             string query = "update branches set area = '" + area + "', city = '" + city + "' where id = " + br_id + "";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int UpdateService(int id, int price)
+        {
+            string query = "update services set price = " + price + "where id = " + id + "";
             return dbMan.ExecuteNonQuery(query);
         }
     }
