@@ -89,6 +89,12 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(query);
         }
 
+        public int InsertAdmin(string un, string pass, string fname, string lname, string phone)
+        {
+            string query = "insert into admin values('" + un + "', '" + pass + "', '" + fname + "', '" + lname + "', '" + phone + "')";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
         public int ChangePassword(string user, int id, string pass)
         {
             string query = "update " + user + " set password = '" + pass + "' where id = " + id + "";

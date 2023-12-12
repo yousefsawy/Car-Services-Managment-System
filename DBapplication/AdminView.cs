@@ -47,5 +47,11 @@ namespace DBapplication
             ServicesAdmin servicesAdmin = new ServicesAdmin();
             servicesAdmin.Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            AdminsAdmin adminsAdmin = new AdminsAdmin();
+            adminsAdmin.Show();
+        }
     }
 }
