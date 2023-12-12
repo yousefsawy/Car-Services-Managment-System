@@ -36,5 +36,11 @@ namespace DBapplication
             DepartmentsAdmin departmentsAdmin = new DepartmentsAdmin();
             departmentsAdmin.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            BranchesAdmin branchesAdmin = new BranchesAdmin();
+            branchesAdmin.Show();
+        }
     }
 }

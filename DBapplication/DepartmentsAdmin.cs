@@ -41,11 +41,23 @@ namespace DBapplication
             {
                 controllerObj.InsertDepartment(name, "null", br_id);
                 MessageBox.Show("Department created successfully");
+                DataTable dtt = controllerObj.GetAllDeps();
+                comboBox2.DataSource = dtt;
+                comboBox2.ValueMember = "id";
+                comboBox2.DisplayMember = "name";
+                comboBox1.ResetText();
+                comboBox2.ResetText();
             }
             else
             {
                 controllerObj.InsertDepartment(name, descrip, br_id);
                 MessageBox.Show("Department created successfully");
+                DataTable dtt = controllerObj.GetAllDeps();
+                comboBox2.DataSource = dtt;
+                comboBox2.ValueMember = "id";
+                comboBox2.DisplayMember = "name";
+                comboBox1.ResetText();
+                comboBox2.ResetText();
             }
         }
 
@@ -56,6 +68,8 @@ namespace DBapplication
             DataTable dt = controllerObj.GetAllDeps();
             dataGridView1.DataSource = dt;
             dataGridView1.Refresh();
+            comboBox1.ResetText();
+            comboBox2.ResetText();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -70,6 +84,12 @@ namespace DBapplication
                     int dep_id = Convert.ToInt32(comboBox2.SelectedValue);
                     controllerObj.DeleteDepartment(dep_id);
                     MessageBox.Show("Department deleted successfully");
+                    DataTable dtt = controllerObj.GetAllDeps();
+                    comboBox2.DataSource = dtt;
+                    comboBox2.ValueMember = "id";
+                    comboBox2.DisplayMember = "name";
+                    comboBox1.ResetText();
+                    comboBox2.ResetText();
                 }
             }
             
@@ -92,6 +112,8 @@ namespace DBapplication
             {
                 controllerObj.UpdateDepartment(id, br_id);
                 MessageBox.Show("Department updated successfully");
+                comboBox1.ResetText();
+                comboBox2.ResetText();
             }
         }
     }

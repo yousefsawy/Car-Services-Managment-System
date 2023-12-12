@@ -77,6 +77,12 @@ namespace DBapplication
             }
         }
 
+        public int InsertBranch(string city, string area)
+        {
+            string query = "insert into branches values('" + city + "', '" + area + "', 0, 0, 1)";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
         public int ChangePassword(string user, int id, string pass)
         {
             string query = "update " + user + " set password = '" + pass + "' where id = " + id + "";
@@ -102,7 +108,7 @@ namespace DBapplication
 
         public DataTable GetAllDeps()
         {
-            string query = "select * from departments where active = 1";
+            string query = "select * from departments where active = 1 and branch_id in (select id from branches where active = 1)";
             return dbMan.ExecuteReader(query);
         }
 
@@ -118,13 +124,21 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(query);
         }
 
+        public int DeleteBranch(int br_id)
+        {
+            string query = "update branches set active = 0 where id = " + br_id + "";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
         public int UpdateDepartment(int dep_id, int br_id)
         {
-            if (br_id == 0)
-            {
-                return 0;
-            }
             string query = "update departments set branch_id = " + br_id + " where id = " + dep_id + "";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int UpdateBranch(int br_id, string city, string area)
+        {
+            string query = "update branches set area = '" + area + "', city = '" + city + "' where id = " + br_id + "";
             return dbMan.ExecuteNonQuery(query);
         }
     }
