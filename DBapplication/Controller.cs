@@ -49,6 +49,14 @@ namespace DBapplication
             else { return 1; }
         }
 
+        public bool CheckSlotID(int id)
+        {
+            string query = "select * from slots where id = " + id + " and status = 1 and active = 1";
+            DataTable check = dbMan.ExecuteReader(query);
+            if (check == null) { return false; }
+            else { return true; }
+        }
+
         public int InsertClient(string un, string pass, string fname, string lname, string phone)
         {
             if (phone == "null")
@@ -107,6 +115,13 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(query);
         }
 
+        public int InsertRequest(int qty, int total, int status, int cid, int sl_id, int sid, int bid)
+        {
+            string query = "insert into requests values(" + qty + "," + total + "," + status + "," + cid + "," + sl_id + "," + sid + "," + bid + ");" +
+                "update slots set status = 0 where id = " + sl_id + "";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
         public int ChangePassword(string user, int id, string pass)
         {
             string query = "update " + user + " set password = '" + pass + "' where id = " + id + "";
@@ -127,6 +142,14 @@ namespace DBapplication
         public int GetUserID(string user, string un, string pass)
         {
             string query = "select id from " + user + " where username = '" + un + "' and password = '" + pass + "' and active = 1";
+            return (int)dbMan.ExecuteScalar(query);
+        }
+
+        public int GetSlotID(string day, int time, int br_id, int s_id)
+        {
+            string query = "select id from slots where day = '" + day + "' and time = " + time + " and dep_id in" +
+                "(select id from departments where branch_id = " + br_id + " and id in" +
+                "(select dep_id from specialities where service_id = " + s_id + "))";
             return (int)dbMan.ExecuteScalar(query);
         }
 
@@ -170,6 +193,33 @@ namespace DBapplication
         {
             string query = "select * from branches where city = '" + city + "'";
             return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetAllBranchesFilterSName(string name)
+        {
+            string query = "select * from branches where id in" +
+                "(select branch_id from departments where id in" +
+                "(select distinct dep_id from specialities where service_id in" +
+                "(select id from services where name = '" + name + "'and active = 1)))";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetAllServicesTypes()
+        {
+            string query = "select distinct type from services where active = 1";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetAllServicesFilterType(string type)
+        {
+            string query = "select * from services where type = '" + type + "' and active = 1";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public int GetServicePrice(string name)
+        {
+            string query = "select price from services where name = '" + name + "'";
+            return (int)dbMan.ExecuteScalar(query);
         }
 
         public DataTable GetClientHistory(int id)
