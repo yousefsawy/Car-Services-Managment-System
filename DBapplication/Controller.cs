@@ -101,6 +101,12 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(query);
         }
 
+        public int InsertReview(int book_id, int rating, string text)
+        {
+            string query = "insert into reviews values('" + text + "', " + rating + ", " + book_id + ")";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
         public int ChangePassword(string user, int id, string pass)
         {
             string query = "update " + user + " set password = '" + pass + "' where id = " + id + "";
@@ -169,6 +175,14 @@ namespace DBapplication
         public DataTable GetClientHistory(int id)
         {
             string query = "select * from requests where client_id = " + id + " and id in (select request_id from bookings)";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetClientReviews(int id)
+        {
+            string query = "select * from reviews where booking_id in" +
+                "(select id from bookings where request_id in" +
+                "(select id from requests where client_id = " + id + "))";
             return dbMan.ExecuteReader(query);
         }
 
