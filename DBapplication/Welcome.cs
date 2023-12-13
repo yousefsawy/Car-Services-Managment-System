@@ -32,7 +32,8 @@ namespace DBapplication
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            ClientLogin clientLogin = new ClientLogin();
+            clientLogin.Show();
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)

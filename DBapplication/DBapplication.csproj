@@ -77,11 +77,35 @@
     <Compile Include="BranchesAdmin.Designer.cs">
       <DependentUpon>BranchesAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="BranchesClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BranchesClient.Designer.cs">
+      <DependentUpon>BranchesClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChangePassword.Designer.cs">
       <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientHistory.Designer.cs">
+      <DependentUpon>ClientHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientLogin.Designer.cs">
+      <DependentUpon>ClientLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientView.Designer.cs">
+      <DependentUpon>ClientView.cs</DependentUpon>
     </Compile>
     <Compile Include="ConnectString.cs" />
     <Compile Include="Controller.cs" />
@@ -105,6 +129,12 @@
     </Compile>
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RequestClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RequestClient.Designer.cs">
+      <DependentUpon>RequestClient.cs</DependentUpon>
     </Compile>
     <Compile Include="ServicesAdmin.cs">
       <SubType>Form</SubType>
@@ -130,8 +160,20 @@
     <EmbeddedResource Include="BranchesAdmin.resx">
       <DependentUpon>BranchesAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BranchesClient.resx">
+      <DependentUpon>BranchesClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientHistory.resx">
+      <DependentUpon>ClientHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientLogin.resx">
+      <DependentUpon>ClientLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientView.resx">
+      <DependentUpon>ClientView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DepartmentsAdmin.resx">
       <DependentUpon>DepartmentsAdmin.cs</DependentUpon>
@@ -151,6 +193,9 @@
     </Compile>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RequestClient.resx">
+      <DependentUpon>RequestClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ServicesAdmin.resx">
       <DependentUpon>ServicesAdmin.cs</DependentUpon>

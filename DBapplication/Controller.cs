@@ -154,6 +154,24 @@ namespace DBapplication
             return dbMan.ExecuteReader(query);
         }
 
+        public DataTable GetAllBranchesCities()
+        {
+            string query = "select distinct city from branches where active = 1";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetAllBranchesFilterCity(string city)
+        {
+            string query = "select * from branches where city = '" + city + "'";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetClientHistory(int id)
+        {
+            string query = "select * from requests where client_id = " + id + " and id in (select request_id from bookings)";
+            return dbMan.ExecuteReader(query);
+        }
+
         public int DeleteDepartment(int dep_id)
         {
             string query = "update departments set active = 0 where id = " + dep_id + "";
