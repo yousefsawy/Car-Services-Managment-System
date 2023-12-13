@@ -27,7 +27,8 @@ namespace DBapplication
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            HODLogin hODLogin = new HODLogin();
+            hODLogin.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)

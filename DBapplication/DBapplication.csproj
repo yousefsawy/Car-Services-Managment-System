@@ -116,6 +116,18 @@
     <Compile Include="DepartmentsAdmin.Designer.cs">
       <DependentUpon>DepartmentsAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="HODLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HODLogin.Designer.cs">
+      <DependentUpon>HODLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HODView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HODView.Designer.cs">
+      <DependentUpon>HODView.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManagersAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +189,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DepartmentsAdmin.resx">
       <DependentUpon>DepartmentsAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HODLogin.resx">
+      <DependentUpon>HODLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HODView.resx">
+      <DependentUpon>HODView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManagersAdmin.resx">
       <DependentUpon>ManagersAdmin.cs</DependentUpon>
