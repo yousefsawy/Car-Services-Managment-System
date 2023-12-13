@@ -32,7 +32,8 @@ namespace DBapplication
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            RequestHOD requestHOD = new RequestHOD(hod_id);
+            requestHOD.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)

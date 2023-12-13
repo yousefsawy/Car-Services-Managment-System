@@ -250,6 +250,22 @@ namespace DBapplication
             return (int)dbMan.ExecuteScalar(query);
         }
 
+        public DataTable GetDepRequests(int hid)
+        {
+            string query = "select * from requests where status = 0 and branch_id in (select branch_id from departments where id in" +
+                "(select dep_id from hod where id = "+hid+")) and service_id in" +
+                "(select service_id from specialities where dep_id in" +
+                "(select dep_id from hod where id = " + hid + "))";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetFreeEmp(int hid)
+        {
+            string query = "select * from employee where active = 1 and dep_id in" +
+                "(select dep_id from hod where id = "+hid+")";
+            return dbMan.ExecuteReader(query);
+        }
+
         public int DeleteDepartment(int dep_id)
         {
             string query = "update departments set active = 0 where id = " + dep_id + "";
@@ -295,6 +311,27 @@ namespace DBapplication
         public int UpdateManager(int id, int br_id)
         {
             string query = "update manager set branch_id = " + br_id + " where id = " + id + "";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int UpdateCountRevenue(int emp_id, int req_id)
+        {
+            string query = "update employee set services_count = services_count + 1 where id = " + emp_id + ";" +
+                "update branches set services_count = services_count + 1," +
+                "revenue = revenue + (select(total) from requests where id = " + req_id + ")" +
+                "where id in(select branch_id from requests where id = " + req_id + ");";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int DeclineRequest(int id)
+        {
+            string query = "update requests set status = -1 where id = " + id + "";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int AcceptRequest(int id)
+        {
+            string query = "update requests set status = 1 where id = " + id + "";
             return dbMan.ExecuteNonQuery(query);
         }
     }
