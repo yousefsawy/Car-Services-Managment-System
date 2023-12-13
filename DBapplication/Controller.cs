@@ -236,6 +236,20 @@ namespace DBapplication
             return dbMan.ExecuteReader(query);
         }
 
+        public DataTable GetEmpSCount(int hid)
+        {
+            string query = "select fname, lname, services_count from employee where dep_id in" +
+                "(select dep_id from hod where id = " + hid + ")";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public int GetDepSCount(int hid)
+        {
+            string query = "select sum(services_count) from employee where dep_id in" +
+                "(select dep_id from hod where id = " + hid + ")";
+            return (int)dbMan.ExecuteScalar(query);
+        }
+
         public int DeleteDepartment(int dep_id)
         {
             string query = "update departments set active = 0 where id = " + dep_id + "";

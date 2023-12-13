@@ -154,6 +154,12 @@
     <Compile Include="ServicesAdmin.Designer.cs">
       <DependentUpon>ServicesAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="StatsHOD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatsHOD.Designer.cs">
+      <DependentUpon>StatsHOD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Welcome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ServicesAdmin.resx">
       <DependentUpon>ServicesAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatsHOD.resx">
+      <DependentUpon>StatsHOD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Welcome.resx">
       <DependentUpon>Welcome.cs</DependentUpon>

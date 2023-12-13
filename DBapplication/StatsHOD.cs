@@ -10,35 +10,34 @@ using System.Windows.Forms;
 
 namespace DBapplication
 {
-    public partial class HODView : Form
+    public partial class StatsHOD : Form
     {
         int hod_id;
-        public HODView(int id)
+        Controller controllerObj;
+        public StatsHOD(int id)
         {
             InitializeComponent();
             hod_id = id;
         }
 
-        private void HODView_Load(object sender, EventArgs e)
+        private void StatsHOD_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            ChangePassword changePassword = new ChangePassword(hod_id, "hod");
-            changePassword.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            controllerObj = new Controller();
+            int count = controllerObj.GetDepSCount(hod_id);
+            textBox1.Text = count.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            StatsHOD statsHOD = new StatsHOD(hod_id);
-            statsHOD.Show();
+            controllerObj = new Controller();
+            DataTable dt = controllerObj.GetEmpSCount(hod_id);
+            dataGridView1.DataSource = dt;
+            dataGridView1.Refresh();
         }
     }
 }
