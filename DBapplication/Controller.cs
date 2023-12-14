@@ -122,6 +122,12 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(query);
         }
 
+        public int InsertEmployee(string fname, string lname, string phone, int dep_id)
+        {
+            string query = "insert into employee values('" + fname + "', '" + lname + "', '" + phone + "', 0, 1, " + dep_id + ", 1)";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
         public int ChangePassword(string user, int id, string pass)
         {
             string query = "update " + user + " set password = '" + pass + "' where id = " + id + "";
@@ -289,7 +295,22 @@ namespace DBapplication
 
         public DataTable GetParts()
         {
-            string query = "select * from services where type = 'battery' or type = 'tyre'";
+            string query = "select * from services where type = 'battery' or type = 'tyre' and active = 1";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetDepsBranch(int id)
+        {
+            string query = "select * from departments where active = 1 and branch_id in" +
+                "(select branch_id from manager where id = " + id + ")";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetEmpsBranch(int id)
+        {
+            string query = "select * from employee where active = 1 and dep_id in" +
+                "(select id from departments where branch_id in" +
+                "(select branch_id from manager where id = " + id + "))";
             return dbMan.ExecuteReader(query);
         }
 
@@ -317,6 +338,12 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(query);
         }
 
+        public int DeleteEmployee(int id)
+        {
+            string query = "update employee set active = 0 where id = " + id + "";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
         public int UpdateDepartment(int dep_id, int br_id)
         {
             string query = "update departments set branch_id = " + br_id + " where id = " + dep_id + "";
@@ -338,6 +365,12 @@ namespace DBapplication
         public int UpdateManager(int id, int br_id)
         {
             string query = "update manager set branch_id = " + br_id + " where id = " + id + "";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int UpdateEmployee(int id, int dep_id)
+        {
+            string query = "update employee set dep_id = " + dep_id + " where id = " + id + "";
             return dbMan.ExecuteNonQuery(query);
         }
 

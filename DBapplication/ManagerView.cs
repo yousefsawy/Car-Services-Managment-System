@@ -36,5 +36,11 @@ namespace DBapplication
             StorageManager storageManager = new StorageManager(manager_id);
             storageManager.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            EmpsAdmin empsAdmin = new EmpsAdmin(manager_id);
+            empsAdmin.Show();
+        }
     }
 }
