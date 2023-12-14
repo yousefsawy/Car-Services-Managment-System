@@ -109,6 +109,12 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(query);
         }
 
+        public int InsertHOD(string un, string pass, string fname, string lname, string phone, int dep_id)
+        {
+            string query = "insert into hod values('" + un + "', '" + pass + "', '" + fname + "', '" + lname + "', '" + phone + "', " + dep_id + ", 1)";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
         public int InsertReview(int book_id, int rating, string text)
         {
             string query = "insert into reviews values('" + text + "', " + rating + ", " + book_id + ")";
@@ -183,9 +189,23 @@ namespace DBapplication
             return dbMan.ExecuteReader(query);
         }
 
+        public DataTable GetAllHODs(int id)
+        {
+            string query = "select * from hod where active = 1 and dep_id in (select id from departments where active = 1 and branch_id in" +
+                "(select branch_id from manager where id = " + id + "))";
+            return dbMan.ExecuteReader(query);
+        }
+
         public DataTable GetAllUnmanagedBranches()
         {
             string query = "select * from branches where active = 1 and id not in (select branch_id from manager where active = 1)";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetAllUnmanagedDeps(int id)
+        {
+            string query = "select * from departments where active = 1 and id not in (select dep_id from hod where active = 1)" +
+                "and branch_id in (select branch_id from manager where id = " + id + ")";
             return dbMan.ExecuteReader(query);
         }
 
@@ -338,6 +358,12 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(query);
         }
 
+        public int DeleteHOD(int id)
+        {
+            string query = "update hod set active  = 0 where id = " + id + "";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
         public int DeleteEmployee(int id)
         {
             string query = "update employee set active = 0 where id = " + id + "";
@@ -387,6 +413,12 @@ namespace DBapplication
         {
             string query = "update branch_storage set quantity = quantity + " + qty + " where part_id = " + pid + " and branch_id in" +
                 "(select branch_id from manager where id = " + id + ")";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int UpdateHOD(int id, int dep_id)
+        {
+            string query = "update hod set dep_id = " + dep_id + " where id = " + id + "";
             return dbMan.ExecuteNonQuery(query);
         }
 

@@ -42,5 +42,11 @@ namespace DBapplication
             EmpsAdmin empsAdmin = new EmpsAdmin(manager_id);
             empsAdmin.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            HODsManager hODsManager = new HODsManager(manager_id);
+            hODsManager.Show();
+        }
     }
 }
