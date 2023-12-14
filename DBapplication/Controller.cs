@@ -266,6 +266,33 @@ namespace DBapplication
             return dbMan.ExecuteReader(query);
         }
 
+        public int GetBranchSCount(int id)
+        {
+            string query = "select services_count from branches where id in" +
+                "(select branch_id from manager where id = " + id + ")";
+            return (int)dbMan.ExecuteScalar(query);
+        }
+
+        public int GetBranchRevenue(int id)
+        {
+            string query = "select revenue from branches where id in" +
+                "(select branch_id from manager where id = " + id + ")";
+            return (int)dbMan.ExecuteScalar(query);
+        }
+
+        public DataTable GetBranchStorage(int id)
+        {
+            string query = "select * from branch_storage where branch_id in" +
+                "(select branch_id from manager where id = " + id + ")";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetParts()
+        {
+            string query = "select * from services where type = 'battery' or type = 'tyre'";
+            return dbMan.ExecuteReader(query);
+        }
+
         public int DeleteDepartment(int dep_id)
         {
             string query = "update departments set active = 0 where id = " + dep_id + "";
@@ -320,6 +347,19 @@ namespace DBapplication
                 "update branches set services_count = services_count + 1," +
                 "revenue = revenue + (select(total) from requests where id = " + req_id + ")" +
                 "where id in(select branch_id from requests where id = " + req_id + ");";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int UpdateStorage(int id, int pid, int qty)
+        {
+            string query = "update branch_storage set quantity = quantity + " + qty + " where part_id = " + pid + " and branch_id in" +
+                "(select branch_id from manager where id = " + id + ")";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int UpdateStorageClient(int bid, int pid, int qty)
+        {
+            string query = "update branch_storage set quantity = quantity - " + qty + " where part_id = " + pid + " and branch_id  = " + bid + "";
             return dbMan.ExecuteNonQuery(query);
         }
 

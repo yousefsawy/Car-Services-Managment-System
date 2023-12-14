@@ -71,7 +71,7 @@ namespace DBapplication
             int qty;
             if (textBox1.TextLength == 0 || comboBox3.Text == "" || comboBox4.Text == "" || comboBox5.Text == "") 
             { MessageBox.Show("Error! Please, complete the required info"); }
-            else if (!int.TryParse(textBox1.Text, out qty)) { MessageBox.Show("Error! Please, insert a valid quantity"); }
+            else if (!int.TryParse(textBox1.Text, out qty) || qty < 1) { MessageBox.Show("Error! Please, insert a valid quantity"); }
             else
             {
                 int service_id = Convert.ToInt32(comboBox2.SelectedValue);
@@ -84,6 +84,11 @@ namespace DBapplication
                 var ans = MessageBox.Show("Are you sure?", "", MessageBoxButtons.YesNo);
                 if (ans == DialogResult.Yes)
                 {
+                    if (comboBox1.Text == "tyre" || comboBox1.Text == "battery")
+                    {
+                        int check = controllerObj.UpdateStorageClient(br_id, service_id, qty);
+                        if (check == 0) { MessageBox.Show("Error! Quantity not available in branch storage"); return; }
+                    }
                     MessageBox.Show("Request completed succussfully");
                     controllerObj.InsertRequest(qty, total, 0, client_id, slot_id, service_id, br_id);
                     comboBox1.ResetText();
