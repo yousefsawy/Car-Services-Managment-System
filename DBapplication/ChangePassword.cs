@@ -42,6 +42,8 @@ namespace DBapplication
             {
                 controllerObj.ChangePassword(user, user_id, pass);
                 MessageBox.Show("Password changed successfully");
+                textBox1.Text = "";
+                textBox2.Text = "";
             }
         }
     }

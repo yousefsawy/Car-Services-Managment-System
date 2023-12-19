@@ -77,11 +77,35 @@
     <Compile Include="BranchesAdmin.Designer.cs">
       <DependentUpon>BranchesAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="BranchesClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BranchesClient.Designer.cs">
+      <DependentUpon>BranchesClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChangePassword.Designer.cs">
       <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientHistory.Designer.cs">
+      <DependentUpon>ClientHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientLogin.Designer.cs">
+      <DependentUpon>ClientLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientView.Designer.cs">
+      <DependentUpon>ClientView.cs</DependentUpon>
     </Compile>
     <Compile Include="ConnectString.cs" />
     <Compile Include="Controller.cs" />
@@ -92,11 +116,47 @@
     <Compile Include="DepartmentsAdmin.Designer.cs">
       <DependentUpon>DepartmentsAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmpsAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmpsAdmin.Designer.cs">
+      <DependentUpon>EmpsAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HODLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HODLogin.Designer.cs">
+      <DependentUpon>HODLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HODsManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HODsManager.Designer.cs">
+      <DependentUpon>HODsManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HODView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HODView.Designer.cs">
+      <DependentUpon>HODView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerLogin.Designer.cs">
+      <DependentUpon>ManagerLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManagersAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ManagersAdmin.Designer.cs">
       <DependentUpon>ManagersAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerView.Designer.cs">
+      <DependentUpon>ManagerView.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,11 +166,41 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="RequestClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RequestClient.Designer.cs">
+      <DependentUpon>RequestClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RequestHOD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RequestHOD.Designer.cs">
+      <DependentUpon>RequestHOD.cs</DependentUpon>
+    </Compile>
     <Compile Include="ServicesAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ServicesAdmin.Designer.cs">
       <DependentUpon>ServicesAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StatsHOD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatsHOD.Designer.cs">
+      <DependentUpon>StatsHOD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StatsManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatsManager.Designer.cs">
+      <DependentUpon>StatsManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StorageManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StorageManager.Designer.cs">
+      <DependentUpon>StorageManager.cs</DependentUpon>
     </Compile>
     <Compile Include="Welcome.cs">
       <SubType>Form</SubType>
@@ -130,14 +220,44 @@
     <EmbeddedResource Include="BranchesAdmin.resx">
       <DependentUpon>BranchesAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BranchesClient.resx">
+      <DependentUpon>BranchesClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientHistory.resx">
+      <DependentUpon>ClientHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientLogin.resx">
+      <DependentUpon>ClientLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientView.resx">
+      <DependentUpon>ClientView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DepartmentsAdmin.resx">
       <DependentUpon>DepartmentsAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EmpsAdmin.resx">
+      <DependentUpon>EmpsAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HODLogin.resx">
+      <DependentUpon>HODLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HODsManager.resx">
+      <DependentUpon>HODsManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HODView.resx">
+      <DependentUpon>HODView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerLogin.resx">
+      <DependentUpon>ManagerLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ManagersAdmin.resx">
       <DependentUpon>ManagersAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerView.resx">
+      <DependentUpon>ManagerView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -152,8 +272,23 @@
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RequestClient.resx">
+      <DependentUpon>RequestClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RequestHOD.resx">
+      <DependentUpon>RequestHOD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ServicesAdmin.resx">
       <DependentUpon>ServicesAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatsHOD.resx">
+      <DependentUpon>StatsHOD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatsManager.resx">
+      <DependentUpon>StatsManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StorageManager.resx">
+      <DependentUpon>StorageManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Welcome.resx">
       <DependentUpon>Welcome.cs</DependentUpon>

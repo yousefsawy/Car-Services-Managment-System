@@ -27,12 +27,14 @@ namespace DBapplication
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            HODLogin hODLogin = new HODLogin();
+            hODLogin.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            ClientLogin clientLogin = new ClientLogin();
+            clientLogin.Show();
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)
@@ -50,6 +52,12 @@ namespace DBapplication
         {
             Register register = new Register();
             register.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ManagerLogin managerLogin = new ManagerLogin();
+            managerLogin.Show();
         }
     }
 }
