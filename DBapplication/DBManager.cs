@@ -29,7 +29,7 @@ namespace DBapplication
             catch (Exception e)
             {
                 MessageBox.Show("The DB connection is failed");
-                //MessageBox.Show(e.ToString());
+                MessageBox.Show(e.ToString());
             }
         }
 

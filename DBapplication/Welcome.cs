@@ -50,8 +50,9 @@ namespace DBapplication
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Register register = new Register();
+            Register register = new Register(this);
             register.Show();
+            this.Hide();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -59,5 +60,7 @@ namespace DBapplication
             ManagerLogin managerLogin = new ManagerLogin();
             managerLogin.Show();
         }
+
+
     }
 }

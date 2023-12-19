@@ -13,8 +13,10 @@ namespace DBapplication
     public partial class Register : Form
     {
         Controller controllerObj;
-        public Register()
+        Form parent;
+        public Register(Form parent)
         {
+            this.parent = parent;
             InitializeComponent();
         }
 
@@ -47,5 +49,6 @@ namespace DBapplication
                 else { MessageBox.Show("Successful registration"); }
             }
         }
+
     }
 }
