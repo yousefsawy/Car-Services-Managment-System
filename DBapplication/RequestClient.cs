@@ -14,7 +14,7 @@ namespace DBapplication
     {
         int client_id;
         Controller controllerObj;
-        public RequestClient(int id)
+        public RequestClient(int id) //initialize our combobox with the suitable info
         {
             InitializeComponent();
             client_id = id;
@@ -24,7 +24,7 @@ namespace DBapplication
             comboBox1.DisplayMember = "type";
         }
 
-        private void RequestClient_Load(object sender, EventArgs e)
+        private void RequestClient_Load(object sender, EventArgs e) //empties combobox as it looks better this way
         {
             comboBox1.ResetText();
             comboBox2.ResetText();
@@ -35,7 +35,7 @@ namespace DBapplication
             button3.Enabled = false;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //filters by service type
         {
             if (comboBox1.Text == "") { MessageBox.Show("Error! Please, select a service type"); }
             else
@@ -50,7 +50,7 @@ namespace DBapplication
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) //searches by name
         {
             if (comboBox2.Text == "") { MessageBox.Show("Error! Please, select a service"); }
             else
@@ -65,7 +65,7 @@ namespace DBapplication
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //checks out
         {
             controllerObj = new Controller();
             int qty;

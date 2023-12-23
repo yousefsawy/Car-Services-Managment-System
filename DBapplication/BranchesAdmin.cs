@@ -14,7 +14,7 @@ namespace DBapplication
     public partial class BranchesAdmin : Form
     {
         Controller controllerObj;
-        public BranchesAdmin()
+        public BranchesAdmin() //initialize our combobox with the suitable info
         {
             InitializeComponent();
             controllerObj = new Controller();
@@ -24,7 +24,7 @@ namespace DBapplication
             comboBox1.DisplayMember = "area";
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //shows all branches and their info
         {
             controllerObj = new Controller();
             DataTable dt = controllerObj.GetAllBranches();
@@ -35,12 +35,12 @@ namespace DBapplication
             textBox2.Text = "";
         }
 
-        private void BranchesAdmin_Load(object sender, EventArgs e)
+        private void BranchesAdmin_Load(object sender, EventArgs e) //empties combobox as it looks better this way
         {
             comboBox1.ResetText();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e) //deletes a branch
         {
             if (comboBox1.Text == "") { MessageBox.Show("Error! Please, select a branch"); }
             else
@@ -63,7 +63,7 @@ namespace DBapplication
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //creates new branch setting the scount and revenue as zero initially
         {
             controllerObj = new Controller();
             string city = textBox1.Text;
@@ -91,7 +91,7 @@ namespace DBapplication
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) //update a branch by moving it to another city and area
         {
             controllerObj = new Controller();
             string city = textBox1.Text;
@@ -101,44 +101,48 @@ namespace DBapplication
             else if (textBox1.TextLength == 0 || textBox2.TextLength == 0) { MessageBox.Show("Error! Please, complete the required info"); }
             else
             {
-                controllerObj.UpdateBranch(br_id, city, area);
-                MessageBox.Show("Branch updated successfully");
-                DataTable dt = controllerObj.GetAllBranches();
-                comboBox1.DataSource = dt;
-                comboBox1.ValueMember = "id";
-                comboBox1.DisplayMember = "area";
-                comboBox1.ResetText();
-                textBox1.Text = "";
-                textBox2.Text = "";
+                int result = controllerObj.UpdateBranch(br_id, city, area);
+                if (result == 0) { MessageBox.Show("Error! This area is already occupied"); }
+                else
+                {
+                    MessageBox.Show("Branch updated successfully");
+                    DataTable dt = controllerObj.GetAllBranches();
+                    comboBox1.DataSource = dt;
+                    comboBox1.ValueMember = "id";
+                    comboBox1.DisplayMember = "area";
+                    comboBox1.ResetText();
+                    textBox1.Text = "";
+                    textBox2.Text = "";
+                }
             }
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e) //useless
         {
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) //useless
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e) //useless
         {
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e) //useless
         {
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void textBox2_TextChanged(object sender, EventArgs e) //useless
         {
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e) //useless
         {
 
         }

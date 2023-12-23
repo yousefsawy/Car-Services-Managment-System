@@ -20,19 +20,19 @@ namespace DBapplication
             hod_id = id;
         }
 
-        private void StatsHOD_Load(object sender, EventArgs e)
+        private void StatsHOD_Load(object sender, EventArgs e) //useless
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //gets total services count done by this department
         {
             controllerObj = new Controller();
             int count = controllerObj.GetDepSCount(hod_id);
             textBox1.Text = count.ToString();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //gets services count done by each employee
         {
             controllerObj = new Controller();
             DataTable dt = controllerObj.GetEmpSCount(hod_id);

@@ -20,41 +20,41 @@ namespace DBapplication
 
         private void Welcome_Load(object sender, EventArgs e)
         {
-            controllerobj = new Controller();
+            controllerobj = new Controller(); //it just shows the db connection message at first
         }
 
 
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) //login as hod
         {
             HODLogin hODLogin = new HODLogin();
             hODLogin.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //login as client
         {
             ClientLogin clientLogin = new ClientLogin(this);
             clientLogin.Show();
         }
 
-        private void panel4_Paint(object sender, PaintEventArgs e)
+        private void panel4_Paint(object sender, PaintEventArgs e) //useless
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //login as admin
         {
             AdminLogin adminLogin = new AdminLogin();
             adminLogin.Show();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e) //register as client
         {
             Register register = new Register(this);
             register.Show();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e) //login as manager
         {
             ManagerLogin managerLogin = new ManagerLogin();
             managerLogin.Show();

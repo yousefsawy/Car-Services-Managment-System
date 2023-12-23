@@ -14,7 +14,7 @@ namespace DBapplication
     {
         int manager_id;
         Controller controllerObj;
-        public StorageManager(int id)
+        public StorageManager(int id) //initialize our combobox with the suitable info
         {
             this.Parent = Parent;
             InitializeComponent();
@@ -26,12 +26,12 @@ namespace DBapplication
             comboBox1.ValueMember = "id";
         }
 
-        private void StorageManager_Load(object sender, EventArgs e)
+        private void StorageManager_Load(object sender, EventArgs e) //empties combobox as it looks better this way
         {
             comboBox1.ResetText();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //shows the available parts in his storage
         {
             controllerObj = new Controller();
             DataTable dt = controllerObj.GetBranchStorage(manager_id);
@@ -41,7 +41,7 @@ namespace DBapplication
             textBox1.Text = "";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //makes an order with a certain part
         {
             controllerObj = new Controller();
             int qty;

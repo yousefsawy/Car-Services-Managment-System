@@ -14,7 +14,7 @@ namespace DBapplication
     {
         int manager_id;
         Controller controllerObj;
-        public EmpsAdmin(int id)
+        public EmpsAdmin(int id) //initialize our combobox with the suitable info
         {
             InitializeComponent();
             manager_id = id;
@@ -29,13 +29,13 @@ namespace DBapplication
             comboBox2.ValueMember = "id";
         }
 
-        private void EmpsAdmin_Load(object sender, EventArgs e)
+        private void EmpsAdmin_Load(object sender, EventArgs e) //empties combobox as it looks better this way
         {
             comboBox1.ResetText();
             comboBox2.ResetText();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //shows all employees of the branch
         {
             controllerObj = new Controller();
             DataTable dt = controllerObj.GetEmpsBranch(manager_id);
@@ -48,7 +48,7 @@ namespace DBapplication
             textBox3.Text = "";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //creates employee and assigns him to a department in his branch
         {
             int phone;
             string fname = textBox1.Text;
@@ -75,7 +75,7 @@ namespace DBapplication
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e) //deletes employee
         {
             if (comboBox2.Text == "") { MessageBox.Show("Error! Please, select an employee"); }
             else
@@ -99,7 +99,7 @@ namespace DBapplication
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) //updates employee by moving him to another department in the brach
         {
             if (comboBox1.Text == "" || comboBox2.Text == "") { MessageBox.Show("Error! Please, complete the required info"); }
             else

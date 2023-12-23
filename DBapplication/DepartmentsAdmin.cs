@@ -13,7 +13,7 @@ namespace DBapplication
     public partial class DepartmentsAdmin : Form
     {
         Controller controllerObj;
-        public DepartmentsAdmin()
+        public DepartmentsAdmin() //initialize our combobox with the suitable info
         {
             InitializeComponent();
             controllerObj = new Controller();
@@ -27,7 +27,7 @@ namespace DBapplication
             comboBox2.DisplayMember = "name";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //creates a department and assigns it to a branch
         {
             controllerObj = new Controller();
             string name = textBox1.Text;
@@ -65,7 +65,7 @@ namespace DBapplication
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //shows all departments
         {
 
             controllerObj = new Controller();
@@ -78,7 +78,7 @@ namespace DBapplication
             textBox2.Text = "";
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e) //deletes a department
         {
             if (comboBox2.Text == "") { MessageBox.Show("Error! Please, select a department"); }
             else
@@ -103,13 +103,13 @@ namespace DBapplication
             
         }
 
-        private void DepartmentsAdmin_Load(object sender, EventArgs e)
+        private void DepartmentsAdmin_Load(object sender, EventArgs e) //empties combobox as it looks better this way
         {
             comboBox1.ResetText();
             comboBox2.ResetText();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) //updates department by assigning it to a different branch
         {
             controllerObj = new Controller();
             int id = Convert.ToInt32(comboBox2.SelectedValue);

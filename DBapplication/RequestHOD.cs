@@ -14,7 +14,7 @@ namespace DBapplication
     {
         Controller controllerObj;
         int hod_id;
-        public RequestHOD(int id)
+        public RequestHOD(int id) //initialize our combobox with the suitable info
         {
             InitializeComponent();
             hod_id = id;
@@ -29,7 +29,7 @@ namespace DBapplication
             comboBox3.ValueMember = "id";
         }
 
-        private void RequestHOD_Load(object sender, EventArgs e)
+        private void RequestHOD_Load(object sender, EventArgs e) //empties combobox as it looks better this way
         {
             controllerObj = new Controller();
             DataTable dt = controllerObj.GetDepRequests(hod_id);
@@ -40,7 +40,7 @@ namespace DBapplication
             comboBox3.ResetText();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //refreshes the requests
         {
             controllerObj = new Controller();
             DataTable dt = controllerObj.GetDepRequests(hod_id);
@@ -48,7 +48,7 @@ namespace DBapplication
             dataGridView1.Refresh();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //replies to requests and assigns the accepted ones
         {
             controllerObj = new Controller();
             if (comboBox1.Text == "" || comboBox2.Text == "") { MessageBox.Show("Error! Please, complete the required info"); }
@@ -86,17 +86,17 @@ namespace DBapplication
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e) //useless
         {
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) //useless
         {
 
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e) //useless
         {
 
         }

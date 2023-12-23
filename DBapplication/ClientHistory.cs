@@ -14,7 +14,7 @@ namespace DBapplication
     {
         int client_id;
         Controller controllerObj;
-        public ClientHistory(int id)
+        public ClientHistory(int id) //initialize our combobox with the suitable info
         {
             InitializeComponent();
             client_id = id;
@@ -24,7 +24,7 @@ namespace DBapplication
             comboBox1.ValueMember = "id";
         }
 
-        private void ClientHistory_Load(object sender, EventArgs e)
+        private void ClientHistory_Load(object sender, EventArgs e) //initialize our data grid with the suitable info
         {
             controllerObj = new Controller();
             DataTable dt = controllerObj.GetClientHistory(client_id);
@@ -37,7 +37,7 @@ namespace DBapplication
             comboBox2.ResetText();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //adds a review to an existing booking
         {
             if (comboBox1.Text == "" || comboBox2.Text == "" || textBox1.TextLength == 0)
             {

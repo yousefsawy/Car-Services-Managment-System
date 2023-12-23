@@ -20,7 +20,7 @@ namespace DBapplication
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //register as a new client
         {
             controllerObj = new Controller();
             string un = textBox1.Text;

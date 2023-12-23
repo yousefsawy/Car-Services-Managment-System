@@ -13,7 +13,7 @@ namespace DBapplication
     public partial class ManagersAdmin : Form
     {
         Controller controllerObj;
-        public ManagersAdmin()
+        public ManagersAdmin() //initialize our combobox with the suitable info
         {
             InitializeComponent();
             controllerObj = new Controller();
@@ -30,13 +30,13 @@ namespace DBapplication
             }
         }
 
-        private void ManagersAdmin_Load(object sender, EventArgs e)
+        private void ManagersAdmin_Load(object sender, EventArgs e) //empties combobox as it looks better this way
         {
             comboBox1.ResetText();
             comboBox2.ResetText();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //creates manager and assigns him to branch
         {
             controllerObj = new Controller();
             string un = textBox1.Text;
@@ -82,7 +82,7 @@ namespace DBapplication
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //shows all managers
         {
             controllerObj = new Controller();
             DataTable dt = controllerObj.GetAllManagers();
@@ -97,7 +97,7 @@ namespace DBapplication
             textBox5.Text = "";
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e) //deletes manager and makes his branch unmanaged
         {
             if (comboBox2.Text == "") { MessageBox.Show("Error! Please, select a manager"); }
             else
@@ -131,7 +131,7 @@ namespace DBapplication
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) //updates manager by assigning him to new unmanaged branch
         {
             controllerObj = new Controller();
             if (comboBox2.Text == "") { MessageBox.Show("Error! Please, select a manager"); }

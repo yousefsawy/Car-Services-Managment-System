@@ -21,7 +21,7 @@ namespace DBapplication
             manager_id = id;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //gets count of all services done by this branch
         {
             controllerObj = new Controller();
             int scount = controllerObj.GetBranchSCount(manager_id);
@@ -29,7 +29,7 @@ namespace DBapplication
             textBox2.Text = "";
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //gets total branch revenue
         {
             controllerObj = new Controller();
             int rev = controllerObj.GetBranchRevenue(manager_id);

@@ -13,7 +13,7 @@ namespace DBapplication
     public partial class ServicesAdmin : Form
     {
         Controller controllerObj;
-        public ServicesAdmin()
+        public ServicesAdmin() //initialize our combobox with the suitable info
         {
             InitializeComponent();
             controllerObj = new Controller();
@@ -23,7 +23,7 @@ namespace DBapplication
             comboBox2.ValueMember = "id";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //creates new service in the catalogue
         {
             string type = comboBox1.Text;
             string name = textBox1.Text;
@@ -52,13 +52,13 @@ namespace DBapplication
             }
         }
 
-        private void ServicesAdmin_Load(object sender, EventArgs e)
+        private void ServicesAdmin_Load(object sender, EventArgs e) //empties combobox as it looks better this way
         {
             comboBox1.ResetText();
             comboBox2.ResetText();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //shows all services available
         {
             DataTable dt = controllerObj.GetAllServices();
             dataGridView1.DataSource = dt;
@@ -69,7 +69,7 @@ namespace DBapplication
             textBox2.Text = "";
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) //updates service by changing its price
         {
             controllerObj = new Controller();
             int price;
@@ -88,7 +88,7 @@ namespace DBapplication
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e) //deletes service from catalogue
         {
             if (comboBox2.Text == "") { MessageBox.Show("Error! Please, select a service"); }
             else
@@ -113,7 +113,7 @@ namespace DBapplication
         }
 
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) //useless
         {
 
         }

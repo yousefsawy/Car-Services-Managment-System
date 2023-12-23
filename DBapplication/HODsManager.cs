@@ -14,7 +14,7 @@ namespace DBapplication
     {
         int manager_id;
         Controller controllerObj;
-        public HODsManager(int id)
+        public HODsManager(int id) //initialize our combobox with the suitable info
         {
             InitializeComponent();
             manager_id = id;
@@ -29,13 +29,13 @@ namespace DBapplication
             comboBox2.ValueMember = "id";
         }
 
-        private void HODsManager_Load(object sender, EventArgs e)
+        private void HODsManager_Load(object sender, EventArgs e) //empties combobox as it looks better this way
         {
             comboBox1.ResetText();
             comboBox2.ResetText();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //creates hod
         {
             controllerObj = new Controller();
             int phone;
@@ -75,7 +75,7 @@ namespace DBapplication
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //shows all hods in this branch
         {
             controllerObj = new Controller();
             DataTable dt = controllerObj.GetAllHODs(manager_id);
@@ -90,7 +90,7 @@ namespace DBapplication
             textBox5.Text = "";
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e) //delete hod and make the department unmanaged
         {
             if (comboBox2.Text == "") { MessageBox.Show("Error! Please, select a HOD"); }
             else
@@ -116,7 +116,7 @@ namespace DBapplication
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) //update hod by making him head of a different unmanaged dep
         {
             if (comboBox1.Text == "" || comboBox2.Text == "") { MessageBox.Show("Error! Please, complete the required info"); }
             else

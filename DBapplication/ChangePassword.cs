@@ -22,7 +22,7 @@ namespace DBapplication
             user = userr;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //changes password after confirming it
         {
             controllerObj = new Controller();
             string pass = textBox1.Text;
