@@ -33,7 +33,7 @@ namespace DBapplication
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ClientLogin clientLogin = new ClientLogin();
+            ClientLogin clientLogin = new ClientLogin(this);
             clientLogin.Show();
         }
 
@@ -52,7 +52,6 @@ namespace DBapplication
         {
             Register register = new Register(this);
             register.Show();
-            this.Hide();
         }
 
         private void button4_Click(object sender, EventArgs e)

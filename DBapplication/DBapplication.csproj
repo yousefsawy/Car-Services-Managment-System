@@ -122,12 +122,6 @@
     <Compile Include="EmpsAdmin.Designer.cs">
       <DependentUpon>EmpsAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Header.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Header.Designer.cs">
-      <DependentUpon>Header.cs</DependentUpon>
-    </Compile>
     <Compile Include="HODLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,6 +202,12 @@
     <Compile Include="StorageManager.Designer.cs">
       <DependentUpon>StorageManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Top.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Top.Designer.cs">
+      <DependentUpon>Top.cs</DependentUpon>
+    </Compile>
     <Compile Include="Welcome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,9 +216,11 @@
     </Compile>
     <EmbeddedResource Include="AdminLogin.resx">
       <DependentUpon>AdminLogin.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminsAdmin.resx">
       <DependentUpon>AdminsAdmin.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminView.resx">
       <DependentUpon>AdminView.cs</DependentUpon>
@@ -246,9 +248,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EmpsAdmin.resx">
       <DependentUpon>EmpsAdmin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Header.resx">
-      <DependentUpon>Header.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HODLogin.resx">
       <DependentUpon>HODLogin.cs</DependentUpon>
@@ -298,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StorageManager.resx">
       <DependentUpon>StorageManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Top.resx">
+      <DependentUpon>Top.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Welcome.resx">
       <DependentUpon>Welcome.cs</DependentUpon>

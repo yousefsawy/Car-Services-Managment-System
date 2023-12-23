@@ -13,8 +13,10 @@ namespace DBapplication
     public partial class ClientLogin : Form
     {
         Controller controllerObj;
-        public ClientLogin()
+        Form Pr;
+        public ClientLogin(Form Parent)
         {
+            this.Pr = Parent;
             InitializeComponent();
         }
 
@@ -37,5 +39,7 @@ namespace DBapplication
                 }
             }
         }
+
+
     }
 }

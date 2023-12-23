@@ -35,6 +35,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.top1 = new DBapplication.Top();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,14 +72,14 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(466, 59);
+            this.comboBox1.Location = new System.Drawing.Point(395, 168);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 3;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(315, 59);
+            this.textBox1.Location = new System.Drawing.Point(220, 168);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 4;
@@ -86,7 +87,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(508, 40);
+            this.label1.Location = new System.Drawing.Point(439, 149);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 16);
             this.label1.TabIndex = 5;
@@ -95,17 +96,25 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(339, 40);
+            this.label2.Location = new System.Drawing.Point(253, 149);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(25, 16);
             this.label2.TabIndex = 6;
             this.label2.Text = "qty";
             // 
+            // top1
+            // 
+            this.top1.Location = new System.Drawing.Point(0, 0);
+            this.top1.Name = "top1";
+            this.top1.Size = new System.Drawing.Size(1055, 100);
+            this.top1.TabIndex = 7;
+            // 
             // StorageManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1054, 450);
+            this.Controls.Add(this.top1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
@@ -131,5 +140,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private Top top1;
     }
 }

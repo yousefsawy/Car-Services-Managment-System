@@ -33,55 +33,64 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.top1 = new DBapplication.Top();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(385, 319);
+            this.button1.Location = new System.Drawing.Point(448, 341);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(100, 42);
             this.button1.TabIndex = 0;
-            this.button1.Text = "login";
+            this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(515, 107);
+            this.label1.Location = new System.Drawing.Point(603, 147);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 16);
+            this.label1.Size = new System.Drawing.Size(70, 16);
             this.label1.TabIndex = 1;
-            this.label1.Text = "un";
+            this.label1.Text = "Username";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(515, 209);
+            this.label2.Location = new System.Drawing.Point(603, 241);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 16);
+            this.label2.Size = new System.Drawing.Size(67, 16);
             this.label2.TabIndex = 2;
-            this.label2.Text = "pass";
+            this.label2.Text = "Password";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(360, 107);
+            this.textBox1.Location = new System.Drawing.Point(448, 147);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 3;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(360, 206);
+            this.textBox2.Location = new System.Drawing.Point(448, 238);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 22);
             this.textBox2.TabIndex = 4;
+            // 
+            // top1
+            // 
+            this.top1.Location = new System.Drawing.Point(0, 0);
+            this.top1.Name = "top1";
+            this.top1.Size = new System.Drawing.Size(1055, 100);
+            this.top1.TabIndex = 5;
             // 
             // ManagerLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1051, 450);
+            this.Controls.Add(this.top1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
@@ -101,5 +110,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private Top top1;
     }
 }

@@ -16,6 +16,7 @@ namespace DBapplication
         Controller controllerObj;
         public StorageManager(int id)
         {
+            this.Parent = Parent;
             InitializeComponent();
             manager_id = id;
             controllerObj = new Controller();

@@ -33,6 +33,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.top1 = new DBapplication.Top();
             this.SuspendLayout();
             // 
             // button1
@@ -77,11 +78,19 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "confirm new pass";
             // 
+            // top1
+            // 
+            this.top1.Location = new System.Drawing.Point(0, 0);
+            this.top1.Name = "top1";
+            this.top1.Size = new System.Drawing.Size(1055, 100);
+            this.top1.TabIndex = 5;
+            // 
             // ChangePassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1052, 450);
+            this.Controls.Add(this.top1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox2);
@@ -101,5 +110,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private Top top1;
     }
 }
