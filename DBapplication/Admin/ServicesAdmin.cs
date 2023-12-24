@@ -23,6 +23,7 @@ namespace DBapplication
             comboBox2.DisplayMember = "name";
             comboBox2.ValueMember = "id";
             this.parent = parent;
+            top1.setForms(parent, this);
         }
 
         private void button1_Click(object sender, EventArgs e) //creates new service in the catalogue
