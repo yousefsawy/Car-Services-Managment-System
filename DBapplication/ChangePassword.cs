@@ -14,15 +14,18 @@ namespace DBapplication
     {
         int user_id;
         string user;
+        Form parent;
         Controller controllerObj;
-        public ChangePassword(int id, string userr)
+        public ChangePassword(int id, string userr, Form parent)
         {
             InitializeComponent();
             user_id = id;
             user = userr;
+            this.parent = parent;
+            top1.setForms(parent, this);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //changes password after confirming it
         {
             controllerObj = new Controller();
             string pass = textBox1.Text;
