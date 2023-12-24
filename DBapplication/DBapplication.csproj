@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBManagerProc.cs" />
     <Compile Include="Login\AdminLogin.cs">
       <SubType>Form</SubType>
     </Compile>
