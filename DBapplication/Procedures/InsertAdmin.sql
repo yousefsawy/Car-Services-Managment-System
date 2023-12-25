@@ -1,4 +1,4 @@
-use project_standard_1
+use project
 
 GO
 

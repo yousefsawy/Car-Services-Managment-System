@@ -42,13 +42,13 @@ namespace DBapplication
             else { return 1; }
         }
 
-        public int CheckClientLogin(string un, string pass)
-        {
-            string query = "select * from client where username = '" + un + "' and password = '" + pass + "' and active = 1";
-            DataTable check = dbMan.ExecuteReader(query);
-            if (check == null) { return 0; }
-            else { return 1; }
-        }
+        //public int CheckClientLogin(string un, string pass)//done in proc
+        //{
+        //    string query = "select * from client where username = '" + un + "' and password = '" + pass + "' and active = 1";
+        //    DataTable check = dbMan.ExecuteReader(query);
+        //    if (check == null) { return 0; }
+        //    else { return 1; }
+        //}
 
         public bool CheckSlotID(int id)
         {
@@ -123,18 +123,18 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(query);
         }
 
-        public int InsertRequest(int qty, int total, int status, int cid, int sl_id, int sid, int bid)
-        {
-            string query = "insert into requests values(" + qty + "," + total + "," + status + "," + cid + "," + sl_id + "," + sid + "," + bid + ");" +
-                "update slots set status = 0 where id = " + sl_id + "";
-            return dbMan.ExecuteNonQuery(query);
-        }
+        //public int InsertRequest(int qty, int total, int status, int cid, int sl_id, int sid, int bid)//done proc
+        //{
+        //    string query = "insert into requests values(" + qty + "," + total + "," + status + "," + cid + "," + sl_id + "," + sid + "," + bid + ");" +
+        //        "update slots set status = 0 where id = " + sl_id + "";
+        //    return dbMan.ExecuteNonQuery(query);
+        //}
 
-        public int InsertEmployee(string fname, string lname, string phone, int dep_id,int n) //NOT CALLED, PROC AV
-        {
-            string query = "insert into employee values('" + fname + "', '" + lname + "', '" + phone + "', 0, 1, " + dep_id + ", 1)";
-            return dbMan.ExecuteNonQuery(query);
-        }
+        //public int InsertEmployee(string fname, string lname, string phone, int dep_id,int n) //NOT CALLED, PROC AV
+        //{
+        //    string query = "insert into employee values('" + fname + "', '" + lname + "', '" + phone + "', 0, 1, " + dep_id + ", 1)";
+        //    return dbMan.ExecuteNonQuery(query);
+        //}
 
         public int ChangePassword(string user, int id, string pass)
         {
@@ -278,14 +278,14 @@ namespace DBapplication
             return (int)dbMan.ExecuteScalar(query);
         }
 
-        public DataTable GetDepRequests(int hid)
-        {
-            string query = "select * from requests where status = 0 and branch_id in (select branch_id from departments where id in" +
-                "(select dep_id from hod where id = "+hid+")) and service_id in" +
-                "(select service_id from specialities where dep_id in" +
-                "(select dep_id from hod where id = " + hid + "))";
-            return dbMan.ExecuteReader(query);
-        }
+        //public DataTable GetDepRequests(int hid)//done in proc
+        //{
+        //    string query = "select * from requests where status = 0 and branch_id in (select branch_id from departments where id in" +
+        //        "(select dep_id from hod where id = "+hid+")) and service_id in" +
+        //        "(select service_id from specialities where dep_id in" +
+        //        "(select dep_id from hod where id = " + hid + "))";
+        //    return dbMan.ExecuteReader(query);
+        //}
 
         public DataTable GetFreeEmp(int hid)
         {
@@ -430,17 +430,17 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(query);
         }
 
-        public int DeclineRequest(int id)
-        {
-            string query = "update requests set status = -1 where id = " + id + "";
-            return dbMan.ExecuteNonQuery(query);
-        }
+        //public int DeclineRequest(int id)//done in proc
+        //{
+        //    string query = "update requests set status = -1 where id = " + id + "";
+        //    return dbMan.ExecuteNonQuery(query);
+        //}
 
-        public int AcceptRequest(int id)
-        {
-            string query = "update requests set status = 1 where id = " + id + "";
-            return dbMan.ExecuteNonQuery(query);
-        }
+        //public int AcceptRequest(int id)//done in proc
+        //{
+        //    string query = "update requests set status = 1 where id = " + id + "";
+        //    return dbMan.ExecuteNonQuery(query);
+        //}
 
         //PROCEDURES
 
@@ -509,6 +509,58 @@ namespace DBapplication
 
         }
 
+        public int AcceptRequest(int id)
+        {
+            string StoredProcedureName = StoredProcedures.AcceptRequest;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", id);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+        public int DeclineRequest(int id)
+        {
+            string StoredProcedureName = StoredProcedures.DeclineRequest;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", id);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+
+        public int InsertRequest(int qty, int total, int status, int cid, int sl_id, int sid, int bid)
+        {
+            string StoredProcedureName = StoredProcedures.InsertRequest;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@qty", qty);
+            Parameters.Add("@total", total);
+            Parameters.Add("@status", status);
+            Parameters.Add("@cid", cid);
+            Parameters.Add("@sl_id", sl_id);
+            Parameters.Add("@sid", sid);
+            Parameters.Add("@bid", bid);
+
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+
+        public DataTable GetDepRequests(int hid)
+        {
+            string StoredProcedureName = StoredProcedures.GetDepRequests;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@hid", hid);
+            return dbMan.ExecuteReader(StoredProcedureName, Parameters);
+        }
+
+        public int CheckClientLogin(string un,string pass)
+        {
+            string StoredProcedureName = StoredProcedures.CheckClientLogin;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@un", un);
+            Parameters.Add("@pass", pass);
+
+            DataTable check =  dbMan.ExecuteReader(StoredProcedureName, Parameters);
+            if (check == null)
+            {
+                return 0;
+            }
+            else { return 1; }
+        }
 
     }
 }
