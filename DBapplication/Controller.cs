@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace DBapplication
 {
@@ -15,7 +16,7 @@ namespace DBapplication
             dbMan = new DBManager();
         }
 
-        //insert functions here
+        //Queries
 
         public int CheckAdminLogin(string un, string pass)
         {
@@ -85,7 +86,7 @@ namespace DBapplication
             }
         }
 
-        public int InsertBranch(string city, string area)
+        public int InsertBranch(string city, string area,int n) //NOT CALLED, PROC AV
         {
             string query = "insert into branches values('" + city + "', '" + area + "', 0, 0, 1)";
             return dbMan.ExecuteNonQuery(query);
@@ -97,23 +98,24 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(query);
         }
 
-        public int InsertAdmin(string un, string pass, string fname, string lname, string phone)
+        public int InsertAdmin(string un, string pass, string fname, string lname, string phone,int n) //NOT CALLED, PROC AV
         {
             string query = "insert into admin values('" + un + "', '" + pass + "', '" + fname + "', '" + lname + "', '" + phone + "')";
             return dbMan.ExecuteNonQuery(query);
         }
 
-        public int InsertManager(string un, string pass, string fname, string lname, string phone, int br_id)
+        public int InsertManager(string un, string pass, string fname, string lname, string phone, int br_id, int n) //NOT CALLED, PROC AV
         {
             string query = "insert into manager values('" + un + "', '" + pass + "', '" + fname + "', '" + lname + "', '" + phone + "', " + br_id + ", 1)";
             return dbMan.ExecuteNonQuery(query);
         }
 
-        public int InsertHOD(string un, string pass, string fname, string lname, string phone, int dep_id)
+        public int InsertHOD(string un, string pass, string fname, string lname, string phone, int dep_id,int n) //NOT CALLED, PROC AV
         {
             string query = "insert into hod values('" + un + "', '" + pass + "', '" + fname + "', '" + lname + "', '" + phone + "', " + dep_id + ", 1)";
             return dbMan.ExecuteNonQuery(query);
         }
+
 
         public int InsertReview(int book_id, int rating, string text)
         {
@@ -128,7 +130,7 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(query);
         }
 
-        public int InsertEmployee(string fname, string lname, string phone, int dep_id)
+        public int InsertEmployee(string fname, string lname, string phone, int dep_id,int n) //NOT CALLED, PROC AV
         {
             string query = "insert into employee values('" + fname + "', '" + lname + "', '" + phone + "', 0, 1, " + dep_id + ", 1)";
             return dbMan.ExecuteNonQuery(query);
@@ -439,5 +441,74 @@ namespace DBapplication
             string query = "update requests set status = 1 where id = " + id + "";
             return dbMan.ExecuteNonQuery(query);
         }
+
+        //PROCEDURES
+
+        public int InsertAdmin(string un, string pass, string fname, string lname, string phone)
+        {
+            string StoredProcedureName = StoredProcedures.InsertAdmin;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@Username", un);
+            Parameters.Add("Password", pass);
+            Parameters.Add("@fname", fname);
+            Parameters.Add("@lname", lname);
+            Parameters.Add("@phone", phone);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+
+
+        public int InsertManager(string un, string pass, string fname, string lname, string phone, int br_id)
+        {
+            string StoredProcedureName = StoredProcedures.InsertManager;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@Username", un);
+            Parameters.Add("Password", pass);
+            Parameters.Add("@fname", fname);
+            Parameters.Add("@lname", lname);
+            Parameters.Add("@phone", phone);
+            Parameters.Add("@branch_id", br_id);
+            Parameters.Add("@active", 1);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+
+        public int InsertHOD(string un, string pass, string fname, string lname, string phone, int dep_id)
+        {
+
+            string StoredProcedureName = StoredProcedures.InsertHOD;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@Username", un);
+            Parameters.Add("Password", pass);
+            Parameters.Add("@fname", fname);
+            Parameters.Add("@lname", lname);
+            Parameters.Add("@phone", phone);
+            Parameters.Add("@dep_id", dep_id);
+            Parameters.Add("@active", 1);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+
+        public int InsertEmployee(string fname, string lname, string phone, int dep_id)
+        {
+            string StoredProcedureName = StoredProcedures.InsertEmployee;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@fname", fname);
+            Parameters.Add("@lname", lname);
+            Parameters.Add("@phone", phone);
+            Parameters.Add("@dep_id", dep_id);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+
+        }
+
+        public int InsertBranch(string city, string area)
+        {
+            string StoredProcedureName = StoredProcedures.InsertBranch;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@city", city);
+            Parameters.Add("@area", area);
+
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+
+        }
+
+
     }
 }

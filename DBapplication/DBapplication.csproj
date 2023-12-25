@@ -214,6 +214,7 @@
     <Compile Include="CustomControls\TopLogout.Designer.cs">
       <DependentUpon>TopLogout.cs</DependentUpon>
     </Compile>
+    <Compile Include="StoredProcedures.cs" />
     <Compile Include="Welcome.cs">
       <SubType>Form</SubType>
     </Compile>
