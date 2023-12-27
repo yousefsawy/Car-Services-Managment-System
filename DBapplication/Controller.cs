@@ -347,6 +347,12 @@ namespace DBapplication
                 "(select branch_id from manager where id = " + id + "))";
             return dbMan.ExecuteReader(query);
         }
+        public int GetMaxRev()
+        {
+            string query = "select max(revenue) from branch;";
+            return (int)dbMan.ExecuteScalar(query);
+
+        }
 
         public int DeleteDepartment(int dep_id)
         {
