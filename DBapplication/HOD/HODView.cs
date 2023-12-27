@@ -43,5 +43,10 @@ namespace DBapplication
             statsHOD.Show();
             this.Hide();
         }
+
+        private void HODView_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

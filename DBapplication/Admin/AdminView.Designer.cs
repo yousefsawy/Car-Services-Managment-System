@@ -42,14 +42,15 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.topLogout1 = new DBapplication.TopLogout();
+            this.button7 = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(718, 151);
+            this.button1.Location = new System.Drawing.Point(718, 124);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(222, 39);
             this.button1.TabIndex = 0;
@@ -59,7 +60,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(718, 196);
+            this.button2.Location = new System.Drawing.Point(718, 169);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(222, 39);
             this.button2.TabIndex = 1;
@@ -69,7 +70,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(719, 241);
+            this.button3.Location = new System.Drawing.Point(718, 214);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(223, 39);
             this.button3.TabIndex = 2;
@@ -79,7 +80,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(719, 286);
+            this.button4.Location = new System.Drawing.Point(718, 259);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(223, 39);
             this.button4.TabIndex = 3;
@@ -89,7 +90,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(718, 331);
+            this.button5.Location = new System.Drawing.Point(718, 304);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(223, 40);
             this.button5.TabIndex = 4;
@@ -99,13 +100,30 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(718, 377);
+            this.button6.Location = new System.Drawing.Point(718, 350);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(223, 44);
             this.button6.TabIndex = 5;
             this.button6.Text = "Change Password";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // topLogout1
+            // 
+            this.topLogout1.Location = new System.Drawing.Point(0, 0);
+            this.topLogout1.Name = "topLogout1";
+            this.topLogout1.Size = new System.Drawing.Size(1055, 100);
+            this.topLogout1.TabIndex = 8;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(718, 400);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(223, 40);
+            this.button7.TabIndex = 9;
+            this.button7.Text = "Statistics";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // pictureBox2
             // 
@@ -117,19 +135,13 @@
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
             // 
-            // topLogout1
-            // 
-            this.topLogout1.Location = new System.Drawing.Point(0, 0);
-            this.topLogout1.Name = "topLogout1";
-            this.topLogout1.Size = new System.Drawing.Size(1055, 100);
-            this.topLogout1.TabIndex = 8;
-            // 
             // AdminView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1051, 450);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.topLogout1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.button6);
@@ -155,5 +167,6 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.PictureBox pictureBox2;
         private TopLogout topLogout1;
+        private System.Windows.Forms.Button button7;
     }
 }

@@ -270,12 +270,19 @@ namespace DBapplication
                 "(select dep_id from hod where id = " + hid + ")";
             return dbMan.ExecuteReader(query);
         }
+        public string GetMaxEmp (int hid)
+        {
+            string query = "select employee.fname from employee, hod where hod.id = " + hid + " and hod.dep_id=employee.dep_id and services_count in" +
+                "(select max(services_count) from employee where dep_id in" +    
+                "(select dep_id from hod where id = " + hid + "))";
+            return (string)dbMan.ExecuteScalar(query);
+        }
 
         public int GetDepSCount(int hid)
         {
             string query = "select sum(services_count) from employee where dep_id in" +
                 "(select dep_id from hod where id = " + hid + ")";
-            return (int)dbMan.ExecuteScalar(query);
+            return (int)dbMan.ExecuteScalar(query); 
         }
 
         public DataTable GetDepRequests(int hid)
@@ -298,6 +305,11 @@ namespace DBapplication
         {
             string query = "select services_count from branches where id in" +
                 "(select branch_id from manager where id = " + id + ")";
+            return (int)dbMan.ExecuteScalar(query);
+        }
+        public int GetNoEmp(int id)
+        {
+            string query = "select count(employee.id) from employee, departments, manager where manager.id = " + id + " and manager.branch_id = departments.branch_id and employee.dep_id = departments.id;";
             return (int)dbMan.ExecuteScalar(query);
         }
 

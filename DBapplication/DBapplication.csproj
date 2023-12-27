@@ -53,6 +53,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\StatsAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\StatsAdmin.Designer.cs">
+      <DependentUpon>StatsAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectString.cs" />
     <Compile Include="Login\AdminLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,7 +114,6 @@
     <Compile Include="Client\ClientView.Designer.cs">
       <DependentUpon>ClientView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConnectString.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="DBManager.cs" />
     <Compile Include="Admin\DepartmentsAdmin.cs">
@@ -221,6 +227,9 @@
     <Compile Include="Welcome.Designer.cs">
       <DependentUpon>Welcome.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Admin\StatsAdmin.resx">
+      <DependentUpon>StatsAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login\AdminLogin.resx">
       <DependentUpon>AdminLogin.cs</DependentUpon>
       <SubType>Designer</SubType>

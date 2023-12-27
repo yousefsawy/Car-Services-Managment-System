@@ -42,5 +42,18 @@ namespace DBapplication
             dataGridView1.DataSource = dt;
             dataGridView1.Refresh();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            controllerObj = new Controller();
+            string name = controllerObj.GetMaxEmp(hod_id);
+            textBox2.Text = name;
+
+        }
     }
 }

@@ -64,5 +64,12 @@ namespace DBapplication
             managersAdmin.Show();
             this.Hide();
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            StatsAdmin statsadmin = new StatsAdmin(this);
+            statsadmin.Show();
+            this.Hide();
+        }
     }
 }

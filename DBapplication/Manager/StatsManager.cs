@@ -39,5 +39,12 @@ namespace DBapplication
             textBox2.Text = rev.ToString();
             textBox1.Text = "";
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            controllerObj = new Controller();
+            int result = controllerObj.GetBranchSCount(manager_id) / controllerObj.GetNoEmp(manager_id);
+            textBox3.Text = result.ToString();
+        }
     }
 }

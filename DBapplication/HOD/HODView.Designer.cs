@@ -39,8 +39,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.topLogout1 = new DBapplication.TopLogout();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.topLogout1 = new DBapplication.TopLogout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,13 +74,6 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // topLogout1
-            // 
-            this.topLogout1.Location = new System.Drawing.Point(0, 0);
-            this.topLogout1.Name = "topLogout1";
-            this.topLogout1.Size = new System.Drawing.Size(1055, 100);
-            this.topLogout1.TabIndex = 3;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
@@ -90,6 +83,13 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
+            // 
+            // topLogout1
+            // 
+            this.topLogout1.Location = new System.Drawing.Point(0, 0);
+            this.topLogout1.Name = "topLogout1";
+            this.topLogout1.Size = new System.Drawing.Size(1055, 100);
+            this.topLogout1.TabIndex = 3;
             // 
             // HODView
             // 
@@ -104,6 +104,7 @@
             this.Controls.Add(this.button1);
             this.Name = "HODView";
             this.Text = "HODView";
+            this.Load += new System.EventHandler(this.HODView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
