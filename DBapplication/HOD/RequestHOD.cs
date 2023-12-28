@@ -77,6 +77,7 @@ namespace DBapplication
                         MessageBox.Show("Request accepted successfully");
                         controllerObj.AcceptRequest(Convert.ToInt32(comboBox1.Text));
                         controllerObj.UpdateCountRevenue(Convert.ToInt32(comboBox3.SelectedValue), Convert.ToInt32(comboBox1.Text));
+                        controllerObj.insertBooking(Convert.ToInt32(comboBox1.SelectedValue));
                         DataTable dt = controllerObj.GetDepRequests(hod_id);
                         comboBox1.DataSource = dt;
                         comboBox1.DisplayMember = "id";

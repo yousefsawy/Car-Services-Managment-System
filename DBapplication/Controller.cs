@@ -42,7 +42,7 @@ namespace DBapplication
             else { return 1; }
         }
 
-        public int CheckClientLogin(string un, string pass)
+        public int CheckClientLogin(string un, string pass, int n) //UNUSED PROC AV
         {
             string query = "select * from client where username = '" + un + "' and password = '" + pass + "' and active = 1";
             DataTable check = dbMan.ExecuteReader(query);
@@ -123,7 +123,7 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(query);
         }
 
-        public int InsertRequest(int qty, int total, int status, int cid, int sl_id, int sid, int bid)
+        public int InsertRequest(int qty, int total, int status, int cid, int sl_id, int sid, int bid,int n) //UNUSED PROC AV
         {
             string query = "insert into requests values(" + qty + "," + total + "," + status + "," + cid + "," + sl_id + "," + sid + "," + bid + ");" +
                 "update slots set status = 0 where id = " + sl_id + "";
@@ -285,7 +285,7 @@ namespace DBapplication
             return (int)dbMan.ExecuteScalar(query); 
         }
 
-        public DataTable GetDepRequests(int hid)
+        public DataTable GetDepRequests(int hid, int n) //UNUSED PROC AV
         {
             string query = "select * from requests where status = 0 and branch_id in (select branch_id from departments where id in" +
                 "(select dep_id from hod where id = "+hid+")) and service_id in" +
@@ -349,8 +349,36 @@ namespace DBapplication
         }
         public int GetMaxRev()
         {
-            string query = "select max(revenue) from branch;";
+            string query = "select max(revenue) from branches;";
             return (int)dbMan.ExecuteScalar(query);
+
+        }
+
+        public DataTable GetMaxRevBranch()
+        {
+            int rev = GetMaxRev();
+            string query = "select city, revenue from branches where revenue ="  +  rev;
+            return dbMan.ExecuteReader(query);
+        }
+
+        public int GetTotalRev()
+        {
+            string query = "select sum(revenue) from branches";
+            return (int)dbMan.ExecuteScalar(query);
+               
+        }
+
+
+        public DataTable GetDepartmentStat()
+        {
+            string query = "select Departments.name,Employee.dep_id, SUM(Employee.services_count),AVG(Employee.services_count)\r\nFrom Departments, Employee\r\nwhere Departments.id = Employee.dep_id\r\nGroup by Departments.name, dep_id\r\norder by SUM(Employee.services_count) DESC";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetBranchStat()
+        {
+            string query = "select Requests.branch_id, count(*), sum(Requests.total)\r\nfrom Branches, Requests\r\nwhere branch_id = Requests.branch_id\r\ngroup by Requests.branch_id\r\norder by count(*) Desc";
+            return dbMan.ExecuteReader(query);
 
         }
 
@@ -428,6 +456,14 @@ namespace DBapplication
                 "where id in(select branch_id from requests where id = " + req_id + ");";
             return dbMan.ExecuteNonQuery(query);
         }
+        
+        public int insertBooking(int req_id)
+        {
+            string query = "insert into Bookings values(" + req_id + ")";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+
 
         public int UpdateStorage(int id, int pid, int qty)
         {
@@ -448,13 +484,13 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(query);
         }
 
-        public int DeclineRequest(int id)
+        public int DeclineRequest(int id, int n) //UNUSED PROC AV
         {
             string query = "update requests set status = -1 where id = " + id + "";
             return dbMan.ExecuteNonQuery(query);
         }
 
-        public int AcceptRequest(int id)
+        public int AcceptRequest(int id, int n) //UNUSED PROC AV
         {
             string query = "update requests set status = 1 where id = " + id + "";
             return dbMan.ExecuteNonQuery(query);
@@ -526,6 +562,61 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
 
         }
+
+        public int AcceptRequest(int id)
+        {
+            string StoredProcedureName = StoredProcedures.AcceptRequest;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", id);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+
+        public int CheckClientLogin(string un, string pass)
+        {
+            string StoredProcedureName = StoredProcedures.CheckClientLogin;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@un", un);
+            Parameters.Add("@pass", pass);
+
+            DataTable check = dbMan.ExecuteReader(StoredProcedureName, Parameters);
+            if (check == null)
+            { return 0; }
+            else { return 1; }
+        }
+
+        public int DeclineRequest(int id)
+        {
+            string StoredProcedureName = StoredProcedures.DeclineRequest;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", id);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+
+        public DataTable GetDepRequests(int hid)
+        {
+            string StoredProcedureName = StoredProcedures.GetDepRequests;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@hid", hid);
+            return dbMan.ExecuteReader(StoredProcedureName, Parameters);
+
+        }
+
+        public int InsertRequest(int qty, int total, int status, int cid, int sl_id, int sid, int bid)
+        {
+            string StoredProcedureName = StoredProcedures.InsertRequest;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@qty", qty);
+            Parameters.Add("@total", total);
+            Parameters.Add("@status", status);
+            Parameters.Add("@cid", cid);
+            Parameters.Add("@sl_id", sl_id);
+            Parameters.Add("@sid", sid);
+            Parameters.Add("@bid", bid);
+
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+
+        }
+
 
 
     }

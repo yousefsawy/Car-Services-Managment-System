@@ -25,16 +25,41 @@ namespace DBapplication
 
         }
 
-        private void StatsAdmin_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
             controllerObj = new Controller();
             int result = controllerObj.GetMaxRev();
             textBox1.Text = result.ToString();
+            DataTable dt = controllerObj.GetMaxRevBranch();
+            dataGridView1.DataSource = dt;
+            dataGridView1.Refresh();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            controllerObj = new Controller();
+            textBox2.Text = controllerObj.GetTotalRev().ToString();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            controllerObj = new Controller();
+            dataGridView2.DataSource = controllerObj.GetDepartmentStat();
+            dataGridView2.Refresh();
+            dataGridView2.Columns[2].HeaderCell.Value = "Sum of Services Count";
+            dataGridView2.Columns[3].HeaderCell.Value = "Average of Services Count";
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            controllerObj = new Controller();
+            dataGridView3.DataSource = controllerObj.GetBranchStat();
+            dataGridView3.Refresh();
+            dataGridView3.Columns[1].HeaderCell.Value = "Number of Requests";
+            dataGridView3.Columns[2].HeaderCell.Value = "Total Revenue of Requests";
+
+
         }
     }
 }
