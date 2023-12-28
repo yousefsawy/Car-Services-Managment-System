@@ -21,7 +21,7 @@ namespace DBapplication
             client_id = id;
             controllerObj = new Controller();
             DataTable dt = controllerObj.GetClientHistory(id);
-            //DataTable dt1 = controllerObj.Ge
+            comboBox1.DataSource = dt;
             comboBox1.DisplayMember = "id";
             comboBox1.ValueMember = "id";
             this.parent = parent;

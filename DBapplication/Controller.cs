@@ -119,6 +119,8 @@ namespace DBapplication
 
         public int InsertReview(int book_id, int rating, string text)
         {
+            string temp = "select id from bookings where request_id = " + book_id + "";
+            int mid = (int)dbMan.ExecuteScalar(temp);
             string query = "insert into reviews values('" + text + "', " + rating + ", " + book_id + ")";
             return dbMan.ExecuteNonQuery(query);
         }
