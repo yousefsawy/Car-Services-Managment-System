@@ -46,9 +46,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(363, 142);
+            this.button1.Location = new System.Drawing.Point(183, 120);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(144, 34);
             this.button1.TabIndex = 0;
             this.button1.Text = "Services";
             this.button1.UseVisualStyleBackColor = true;
@@ -56,9 +57,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(363, 214);
+            this.button2.Location = new System.Drawing.Point(183, 186);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(144, 34);
             this.button2.TabIndex = 1;
             this.button2.Text = "Revenue";
             this.button2.UseVisualStyleBackColor = true;
@@ -66,32 +68,36 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(503, 142);
+            this.textBox1.Location = new System.Drawing.Point(412, 134);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.Size = new System.Drawing.Size(151, 20);
             this.textBox1.TabIndex = 2;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(503, 214);
+            this.textBox2.Location = new System.Drawing.Point(412, 193);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
+            this.textBox2.Size = new System.Drawing.Size(151, 20);
             this.textBox2.TabIndex = 3;
             // 
             // top1
             // 
             this.top1.Location = new System.Drawing.Point(0, 0);
+            this.top1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.top1.Name = "top1";
-            this.top1.Size = new System.Drawing.Size(1055, 100);
+            this.top1.Size = new System.Drawing.Size(791, 81);
             this.top1.TabIndex = 4;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(301, 284);
+            this.button3.Location = new System.Drawing.Point(183, 255);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(185, 52);
+            this.button3.Size = new System.Drawing.Size(144, 34);
             this.button3.TabIndex = 5;
             this.button3.Text = "Average services per employee";
             this.button3.UseVisualStyleBackColor = true;
@@ -99,17 +105,19 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(503, 299);
+            this.textBox3.Location = new System.Drawing.Point(412, 262);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
+            this.textBox3.Size = new System.Drawing.Size(151, 20);
             this.textBox3.TabIndex = 6;
             // 
             // StatsManager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1053, 450);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(790, 366);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.top1);
@@ -117,6 +125,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "StatsManager";
             this.Text = "StatsManager";
             this.ResumeLayout(false);

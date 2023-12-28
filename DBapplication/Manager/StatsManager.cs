@@ -46,5 +46,6 @@ namespace DBapplication
             int result = controllerObj.GetBranchSCount(manager_id) / controllerObj.GetNoEmp(manager_id);
             textBox3.Text = result.ToString();
         }
+
     }
 }
