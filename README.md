@@ -48,7 +48,7 @@ The Manager can do the following:
 ---
 ## Head of Department
 
-The Head of Department can do the following
+The Head of Department can do the following:
 
 
 * Login
